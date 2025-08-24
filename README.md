@@ -1,74 +1,48 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+**Mind Oasis: A Mental Health Application**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Project Overview**
 
-## Available Scripts
+Mind Oasis is a capstone project built as a comprehensive mental health application. It is designed to cater to two distinct user groups: adults seeking general mental wellness support and children with dyslexia and ADHD who require engaging games for focus and memory improvement. The application integrates AI-powered features to provide a more personalized and effective user experience.
 
-In the project directory, you can run:
+**Features**
 
-### `npm start`
+**For Adults:**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**AI-Powered Chatbot:** A conversational chatbot to provide emotional support, guidance, and stress-relief techniques.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Mood Tracker:** A private journal to log daily moods and thoughts.
 
-### `npm test`
+**Guided Meditations:** Resources for mindfulness and breathing exercises.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**For Kids:**
 
-### `npm run build`
+**Focus Games:** Interactive games designed to improve concentration.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Memory Puzzles:** Engaging puzzles and challenges to strengthen memory skills.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Dyslexia-Friendly UI:** A visually clean and aesthetic design with a specific focus on a pastel color palette for a calming and dyslexia-friendly experience.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Technologies Used**
 
-### `npm run eject`
+This project is built on the MERN stack with a modern, responsive design.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Frontend:**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**React:** For building the user interface.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Tailwind CSS:** For a utility-first approach to rapid and consistent styling with a custom aesthetic theme.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**React Hooks:** For state management and side effects.
 
-## Learn More
+**Backend:**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Node.js:** The runtime environment for the server.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Express.js:** A web application framework for building REST APIs.
 
-### Code Splitting
+**MongoDB**: A NoSQL database for flexible data storage.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**AI/ML:**
 
-### Analyzing the Bundle Size
+Integrated AI models (details to be added by team members).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# Mental-Health-Application
->>>>>>> a0b267b483d12f21c14a23c43da5502967449fa5
