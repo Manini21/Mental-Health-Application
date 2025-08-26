@@ -3,81 +3,67 @@ import { Smile, Gamepad2, Brain, Sparkles, LogIn } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const HomePage = () => (
-  <div className="max-w-6xl mx-auto text-center p-8 bg-pastel-light rounded-xl shadow-lg">
-    <h2 className="text-5xl font-extrabold text-pastel-dark mb-4 animate-fade-in">Welcome to Mind Oasis</h2>
-    <p className="text-xl text-pastel-dark mb-10 max-w-2xl mx-auto animate-fade-in delay-200">
-      Your sanctuary for mental well-being. We offer a holistic approach to mental health with specialized resources for both adults and children.
-    </p>
-
-    <div className="grid md:grid-cols-2 gap-8 mb-10">
-      {/* Adults Section Card */}
-      <div className="bg-pastel-lavender p-8 rounded-2xl shadow-xl transform transition-transform duration-300 hover:scale-105">
-        <div className="flex justify-center mb-4">
-          <Smile className="h-20 w-20 text-pastel-blue animate-bounce-slow" />
-        </div>
-        <h3 className="text-3xl font-bold text-pastel-dark mb-2">For Adults</h3>
-        <p className="text-pastel-dark text-lg mb-4">
-          Navigate the complexities of modern life with personalized support. Our adult section is designed to help you find balance, reduce stress, and cultivate mindfulness through expert-guided resources and AI-powered insights.
-        </p>
-        <ul className="text-left text-pastel-dark list-disc list-inside space-y-1 mb-6">
-          <li>Daily Mood Tracking & Journaling</li>
-          <li>Guided Meditation & Breathing Exercises</li>
-          <li>AI-powered Emotional Support</li>
-          <li>Expert-Curated Articles & Workshops</li>
-        </ul>
-        <Link to="/auth" className="inline-block bg-pastel-blue text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform duration-200 transform hover:scale-105 hover:bg-pastel-purple">
-          <div className="flex items-center space-x-2 justify-center">
-            <LogIn className="w-5 h-5" />
-            <span>Login to Access</span>
-          </div>
-        </Link>
-      </div>
-
-      {/* Kids Section Card */}
-      <div className="bg-pastel-peach p-8 rounded-2xl shadow-xl transform transition-transform duration-300 hover:scale-105">
-        <div className="flex justify-center mb-4">
-          <Gamepad2 className="h-20 w-20 text-pastel-pink animate-spin-slow" />
-        </div>
-        <h3 className="text-3xl font-bold text-pastel-dark mb-2">For Kids</h3>
-        <p className="text-pastel-dark text-lg mb-4">
-          A playful and fun space for children, especially those with dyslexia and ADHD. Our engaging games and activities are designed by specialists to improve focus, memory, and cognitive skills in a creative, stress-free environment.
-        </p>
-        <ul className="text-left text-pastel-dark list-disc list-inside space-y-1 mb-6">
-          <li>Interactive Memory & Focus Games</li>
-          <li>Dyslexia-Friendly Reading Tools</li>
-          <li>Cognitive Training Puzzles</li>
-          <li>Fun & Rewarding Learning Journey</li>
-        </ul>
-        <Link to="/auth" className="inline-block bg-pastel-pink text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform duration-200 transform hover:scale-105 hover:bg-pastel-purple">
-          <div className="flex items-center space-x-2 justify-center">
-            <LogIn className="w-5 h-5" />
-            <span>Login to Access</span>
-          </div>
-        </Link>
-      </div>
-    </div>
-
-    {/* Section for More Information */}
-    <div className="mt-10 p-8 bg-white rounded-xl shadow-lg border border-pastel-mint">
-      <div className="flex justify-center mb-4">
-        <Brain className="h-16 w-16 text-pastel-mint" />
-      </div>
-      <h3 className="text-3xl font-bold text-pastel-dark mb-2">Our AI-Powered Approach</h3>
-      <p className="text-pastel-dark text-lg max-w-3xl mx-auto mb-6">
-        Mind Oasis integrates cutting-edge AI technology to provide personalized insights and support. Our algorithms adapt to your unique needs, creating a truly custom and effective path to mental wellness.
+  <div className="flex flex-col items-center min-h-screen bg-pastel-light font-sans antialiased p-6">
+    {/* Hero Section */}
+    <div className="text-center py-16 px-4 max-w-5xl mx-auto">
+      <h1 className="text-5xl md:text-6xl font-extrabold text-pastel-dark leading-tight mb-4 animate-fade-in">
+        Your Path to Mental Wellness Starts Here
+      </h1>
+      <p className="text-lg md:text-xl text-pastel-dark mb-8 max-w-3xl mx-auto animate-fade-in delay-200">
+        Mind Oasis provides a compassionate and innovative approach to mental health, with specialized support for adults and engaging resources for children.
       </p>
-      <div className="flex justify-center space-x-4">
-        <div className="p-4 bg-pastel-mint rounded-lg shadow-inner">
-          <h4 className="text-xl font-semibold text-pastel-dark">Smarter Support</h4>
-          <p className="text-pastel-dark text-sm mt-1">Chatbot learns and adapts to you.</p>
+      <Link to="/auth" className="inline-block bg-pastel-purple text-white font-bold py-4 px-10 rounded-full text-lg shadow-lg transition-transform duration-300 transform hover:scale-105 hover:bg-pastel-dark animate-slide-up delay-400">
+        <div className="flex items-center justify-center space-x-2">
+          <span>Get Started</span>
+          <LogIn className="w-6 h-6" />
         </div>
-        <div className="p-4 bg-pastel-mint rounded-lg shadow-inner">
-          <h4 className="text-xl font-semibold text-pastel-dark">Data-Driven Insights</h4>
-          <p className="text-pastel-dark text-sm mt-1">Understand your patterns and progress.</p>
+      </Link>
+    </div>
+
+    {/* Service Offerings Section */}
+    <div className="w-full max-w-6xl mx-auto my-12">
+      <h2 className="text-4xl font-bold text-center text-pastel-dark mb-10 animate-fade-in delay-600">
+        Explore Our Offerings
+      </h2>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Adults Section Card */}
+        <div className="bg-pastel-lavender p-8 rounded-2xl shadow-xl flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 animate-slide-in-left delay-800">
+          <Smile className="h-20 w-20 text-pastel-blue mb-4" />
+          <h3 className="text-2xl font-bold text-pastel-dark mb-2">For Adults</h3>
+          <p className="text-pastel-dark text-lg mb-4 flex-grow">
+            Discover a safe space for personal growth. Our resources are designed to help you manage stress, improve mindfulness, and enhance emotional well-being.
+          </p>
+          <Link to="/auth" className="mt-auto bg-white text-pastel-dark font-semibold py-3 px-6 rounded-full shadow-md hover:bg-pastel-blue hover:text-white transition-colors">
+            Learn More
+          </Link>
+        </div>
+
+        {/* Kids Section Card */}
+        <div className="bg-pastel-peach p-8 rounded-2xl shadow-xl flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 animate-slide-in-up delay-1000">
+          <Gamepad2 className="h-20 w-20 text-pastel-pink mb-4" />
+          <h3 className="text-2xl font-bold text-pastel-dark mb-2">For Kids</h3>
+          <p className="text-pastel-dark text-lg mb-4 flex-grow">
+            Fun and focus for the next generation. Our engaging, specialized games help children with dyslexia and ADHD build essential cognitive and memory skills.
+          </p>
+          <Link to="/auth" className="mt-auto bg-white text-pastel-dark font-semibold py-3 px-6 rounded-full shadow-md hover:bg-pastel-pink hover:text-white transition-colors">
+            Learn More
+          </Link>
+        </div>
+
+        {/* AI Section Card */}
+        <div className="bg-pastel-mint p-8 rounded-2xl shadow-xl flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 animate-slide-in-right delay-1200">
+          <Brain className="h-20 w-20 text-pastel-purple mb-4" />
+          <h3 className="text-2xl font-bold text-pastel-dark mb-2">AI-Powered Support</h3>
+          <p className="text-pastel-dark text-lg mb-4 flex-grow">
+            Leverage cutting-edge AI to personalize your journey. Our intelligent system learns and adapts to provide insights and tools tailored just for you.
+          </p>
+          <Link to="/auth" className="mt-auto bg-white text-pastel-dark font-semibold py-3 px-6 rounded-full shadow-md hover:bg-pastel-purple hover:text-white transition-colors">
+            Learn More
+          </Link>
         </div>
       </div>
     </div>
-
+    
     {/* Tailwind CSS keyframes for animations */}
     <style jsx>{`
       @keyframes fade-in {
@@ -90,21 +76,48 @@ const HomePage = () => (
       .animate-fade-in.delay-200 {
         animation-delay: 0.2s;
       }
-
-      @keyframes bounce-slow {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
+      .animate-fade-in.delay-600 {
+        animation-delay: 0.6s;
       }
-      .animate-bounce-slow {
-        animation: bounce-slow 3s infinite ease-in-out;
+      @keyframes slide-up {
+        from { opacity: 0; transform: translateY(50px); }
+        to { opacity: 1; transform: translateY(0); }
       }
-
-      @keyframes spin-slow {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
+      .animate-slide-up {
+        animation: slide-up 0.8s ease-out forwards;
       }
-      .animate-spin-slow {
-        animation: spin-slow 10s linear infinite;
+      .animate-slide-up.delay-400 {
+        animation-delay: 0.4s;
+      }
+      @keyframes slide-in-left {
+        from { opacity: 0; transform: translateX(-50px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+      .animate-slide-in-left {
+        animation: slide-in-left 0.8s ease-out forwards;
+      }
+      .animate-slide-in-left.delay-800 {
+        animation-delay: 0.8s;
+      }
+      @keyframes slide-in-up {
+        from { opacity: 0; transform: translateY(50px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-slide-in-up {
+        animation: slide-in-up 0.8s ease-out forwards;
+      }
+      .animate-slide-in-up.delay-1000 {
+        animation-delay: 1s;
+      }
+      @keyframes slide-in-right {
+        from { opacity: 0; transform: translateX(50px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+      .animate-slide-in-right {
+        animation: slide-in-right 0.8s ease-out forwards;
+      }
+      .animate-slide-in-right.delay-1200 {
+        animation-delay: 1.2s;
       }
     `}</style>
   </div>
