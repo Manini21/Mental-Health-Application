@@ -21,7 +21,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build && xcopy build docs /s /e /y",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "concurrently \"npm run start\" \"node server/server.js\""
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +46,8 @@
     "autoprefixer": "^10.4.21",
     "gh-pages": "^6.3.0",
     "postcss": "^8.5.6",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "concurrently": "^8.2.2"
   }
 }
+
