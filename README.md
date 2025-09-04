@@ -1,4 +1,4 @@
-**Mind Oasis: A Mental Health Application**
+# Mind Oasis: A Mental Health Application
 
 **Project Overview**
 
