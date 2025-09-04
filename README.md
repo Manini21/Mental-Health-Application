@@ -4,45 +4,59 @@
 
 Mind Oasis is a capstone project built as a comprehensive mental health application. It is designed to cater to two distinct user groups: adults seeking general mental wellness support and children with dyslexia and ADHD who require engaging games for focus and memory improvement. The application integrates AI-powered features to provide a more personalized and effective user experience.
 
-**Features**
+# Getting Started :memo:
+## **1. Prerequisites**
 
-**For Adults:**
+You will need the following installed on your machine to run the project:
 
-**AI-Powered Chatbot:** A conversational chatbot to provide emotional support, guidance, and stress-relief techniques.
+* Node.js (v18 or higher)
 
-**Mood Tracker:** A private journal to log daily moods and thoughts.
+* npm
 
-**Guided Meditations:** Resources for mindfulness and breathing exercises.
+* MongoDB
 
-**For Kids:**
+## **2. Installation**
 
-**Focus Games:** Interactive games designed to improve concentration.
+To get started, clone the repository and install the dependencies for both the frontend and the backend.
 
-**Memory Puzzles:** Engaging puzzles and challenges to strengthen memory skills.
+```
+# Clone the repository
+git clone [https://github.com/Manini21/Mental-Health-Application.git](https://github.com/Manini21/Mental-Health-Application.git)
 
-**Dyslexia-Friendly UI:** A visually clean and aesthetic design with a specific focus on a pastel color palette for a calming and dyslexia-friendly experience.
+# Navigate to the project directory
+cd Mental-Health-Application
 
-**Technologies Used**
+# Install frontend dependencies
+npm install
 
-This project is built on the MERN stack with a modern, responsive design.
+# Navigate to the backend directory
+cd server
 
-**Frontend:**
+# Install backend dependencies
+npm install
+```
 
-**React:** For building the user interface.
+## **3. Running the Project**
 
-**Tailwind CSS:** For a utility-first approach to rapid and consistent styling with a custom aesthetic theme.
+To run the full application, you need to start both the frontend and the backend servers in separate terminals.
 
-**React Hooks:** For state management and side effects.
+<ins> **Terminal 1: Start the Frontend** </ins>
 
-**Backend:**
+Open a new terminal, navigate to the project's root directory, and run:
 
-**Node.js:** The runtime environment for the server.
+```npm run start```
 
-**Express.js:** A web application framework for building REST APIs.
+This will launch the React application at http://localhost:3000.
 
-**MongoDB**: A NoSQL database for flexible data storage.
+<ins> **Terminal 2: Start the Backend** </ins>
 
-**AI/ML:**
+Open a second terminal, navigate to the ```server``` directory, and run:
 
-Integrated AI models (details to be added by team members).
+```node server.js```
+
+This will start the Express backend at http://localhost:5000.
+
+Important: You must have your local MongoDB server running for the backend to connect.
+
+
 
