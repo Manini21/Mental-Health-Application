@@ -1,119 +1,129 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { User, Mail, Lock } from 'lucide-react';
 
 const AuthPage = ({ setIsAuthenticated }) => {
   const [isLogin, setIsLogin] = useState(true);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
   const [message, setMessage] = useState('');
-
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  const BACKEND_URL = "http://localhost:5000";
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleAuth = async (e) => {
     e.preventDefault();
     setLoading(true);
     setMessage('');
 
-    const url = isLogin ? 'http://localhost:5000/api/auth/login' : 'http://localhost:5000/api/auth/register';
-    const payload = isLogin ? { email, password } : { name, email, password };
+    const endpoint = isLogin ? `${BACKEND_URL}/api/auth/login` : `${BACKEND_URL}/api/auth/register`;
 
     try {
-      const response = await fetch(url, {
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(formData),
       });
 
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.msg || 'Authentication failed');
+      }
+
       const data = await response.json();
-      if (response.ok) {
-        setMessage(data.msg);
-        if (isLogin) {
-          localStorage.setItem('token', data.token);
-          setIsAuthenticated(true);
-          navigate('/');
-        }
+
+      if (isLogin) {
+        localStorage.setItem('token', data.token);
+        setIsAuthenticated(true);
+        navigate('/');
       } else {
-        setMessage(data.msg || 'An unknown error occurred.');
+        setMessage('User registered successfully! Please log in.');
+        setIsLogin(true);
       }
     } catch (error) {
-      console.error('Authentication error:', error);
-      setMessage('Network error. Please ensure the backend server is running.');
+      setMessage(`Authentication error: ${error.message}`);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-pastel-light">
-      <div className="w-full max-w-md p-8 bg-white rounded-xl shadow-lg">
-        <h2 className="text-3xl font-bold text-center mb-6 text-pastel-dark">
-          {isLogin ? 'Welcome Back' : 'Join Mind Oasis'}
+    <div className="flex items-center justify-center min-h-screen bg-pastel-light dark:bg-pastel-dark">
+      <div className="bg-pastel-lavender dark:bg-pastel-purple p-8 rounded-2xl shadow-xl w-full max-w-md">
+        <h2 className="text-3xl font-bold text-pastel-dark dark:text-pastel-light mb-6 text-center">
+          {isLogin ? 'Login' : 'Sign Up'}
         </h2>
         <form onSubmit={handleAuth}>
           {!isLogin && (
             <div className="mb-4">
-              <label className="block text-pastel-dark text-sm font-semibold mb-2" htmlFor="name">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full px-4 py-2 border border-pastel-lavender rounded-lg focus:outline-none focus:ring-2 focus:ring-pastel-purple transition-colors"
-                required={!isLogin}
-              />
+              <div className="flex items-center bg-white dark:bg-pastel-dark rounded-full shadow-inner p-3">
+                <User className="text-pastel-dark dark:text-pastel-light mr-3" />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                  className="w-full bg-transparent border-none focus:outline-none text-pastel-dark dark:text-pastel-light"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required={!isLogin}
+                />
+              </div>
             </div>
           )}
           <div className="mb-4">
-            <label className="block text-pastel-dark text-sm font-semibold mb-2" htmlFor="email">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 border border-pastel-lavender rounded-lg focus:outline-none focus:ring-2 focus:ring-pastel-purple transition-colors"
-              required
-            />
+            <div className="flex items-center bg-white dark:bg-pastel-dark rounded-full shadow-inner p-3">
+              <Mail className="text-pastel-dark dark:text-pastel-light mr-3" />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                className="w-full bg-transparent border-none focus:outline-none text-pastel-dark dark:text-pastel-light"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
           </div>
           <div className="mb-6">
-            <label className="block text-pastel-dark text-sm font-semibold mb-2" htmlFor="password">
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 border border-pastel-lavender rounded-lg focus:outline-none focus:ring-2 focus:ring-pastel-purple transition-colors"
-              required
-            />
+            <div className="flex items-center bg-white dark:bg-pastel-dark rounded-full shadow-inner p-3">
+              <Lock className="text-pastel-dark dark:text-pastel-light mr-3" />
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                className="w-full bg-transparent border-none focus:outline-none text-pastel-dark dark:text-pastel-light"
+                value={formData.password}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
           </div>
           <button
             type="submit"
-            className="w-full bg-pastel-purple text-white font-bold py-3 px-4 rounded-lg hover:bg-pastel-dark transition-colors duration-200"
+            className="w-full bg-pastel-blue dark:bg-pastel-mint text-white font-bold py-3 px-4 rounded-full shadow-lg transition-colors duration-200 transform hover:scale-105 hover:bg-pastel-dark dark:hover:bg-pastel-lavender"
             disabled={loading}
           >
-            {loading ? 'Processing...' : isLogin ? 'Log In' : 'Sign Up'}
+            {loading ? 'Processing...' : (isLogin ? 'Login' : 'Sign Up')}
           </button>
         </form>
         {message && (
-          <p className="mt-4 text-center text-sm font-semibold text-pastel-dark">
+          <p className={`mt-4 text-center text-sm font-semibold ${message.includes('success') ? 'text-green-600' : 'text-red-600'}`}>
             {message}
           </p>
         )}
         <div className="mt-6 text-center">
           <button
             onClick={() => setIsLogin(!isLogin)}
-            className="text-pastel-blue hover:text-pastel-purple font-semibold transition-colors"
+            className="text-pastel-dark dark:text-white hover:underline focus:outline-none text-sm"
           >
-            {isLogin ? "Don't have an account? Sign Up" : "Already have an account? Log In"}
+            {isLogin ? 'Need an account? Sign Up' : 'Already have an account? Login'}
           </button>
         </div>
       </div>

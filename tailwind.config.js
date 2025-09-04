@@ -1,25 +1,31 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        pastel: {
-          light: '#f7f4f9',      // A very light, off-white
-          lilac: '#e6e0ef',     // A soft, light purple
-          lavender: '#d8ccef',  // A muted lavender
-          mint: '#c8e8d8',      // A gentle mint green
-          peach: '#f7d8c8',     // A soft peach
-          pink: '#f7c8d8',      // A light pastel pink
-          blue: '#c8d8f7',      // A soothing pastel blue
-          purple: '#b7a2d8',    // A slightly deeper purple
-          dark: '#3f384a',      // A dark, dusty purple for text
-        },
-      },
-      fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        // --- Core Theme Colors ---
+        'pastel-light': '#f2ede8ff', // Ivory: Primary background color for light mode.
+        'pastel-dark': '#050533',  // Dark Blue: Primary text color in light mode, and background for dark mode.
+        
+        // --- Card & Section Colors ---
+        'pastel-lavender': '#ff8559',  // Blue Grotto: Used for card backgrounds in light mode.
+        'pastel-purple': '#050533',  // Dark Blue: Used for card backgrounds and navigation in dark mode.
+        'card-bg-light': '#f2f1e8',  // Ivory: Used for the "more information" card background in light mode.
+        'card-bg-dark': '#0d698b',   // Blue Grotto: Used for the "more information" card background in dark mode.
+        
+        // --- Button & Interaction Colors ---
+        'pastel-peach': '#f2f1e8',  // Ivory: Used for button hover effects and secondary buttons.
+        'pastel-pink': '#e34234',  // Cinnabar: Used for icon highlights and button accents.
+        'pastel-blue': '#0d698b',  // Blue Grotto: Used for the Adults card button and AI support card backgrounds.
+        'pastel-mint': '#0d698b',   // Blue Grotto: Used for the Kids card button and AI-powered approach section accents.
+
+        // --- Border & Accent Colors ---
+        'border-light': '#d0ab99', // Nude: A new color for borders in light mode.
+        'border-dark': '#4b3c52',  // A new slightly lighter Ebony for borders in dark mode.
       },
     },
   },
