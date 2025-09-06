@@ -2,13 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer tailwind {
-  @config {
-    content: [
-      "./src/**/*.{js,jsx,ts,tsx}",
-    ];
-  }
-}
+
 
 body {
   margin: 0;
